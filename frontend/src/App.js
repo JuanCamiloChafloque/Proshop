@@ -7,6 +7,8 @@ import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
 
+//TODO: ARREGLAR EL SELECT DEL PRODUCTDETAIL ADD TO CART
+
 function App() {
   return (
     <Router>
@@ -17,6 +19,7 @@ function App() {
             <Route exact path="/" element={<HomeScreen />} />
             <Route path="product/:id" element={<ProductScreen />} />
             <Route path="cart/:id" element={<CartScreen />} />
+            <Route path="cart" element={<CartScreen />} />
           </Routes>
         </Container>
       </main>
