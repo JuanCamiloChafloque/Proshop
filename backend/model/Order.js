@@ -33,7 +33,6 @@ const OrderSchema = new Schema(
         },
       },
     ],
-
     shippingAddress: {
       address: {
         type: String,
@@ -66,10 +65,9 @@ const OrderSchema = new Schema(
       updateTime: {
         type: String,
       },
-      id: {
+      emailAddress: {
         type: String,
       },
-      emailAddress,
     },
     taxPrice: {
       type: Number,
