@@ -7,6 +7,8 @@ import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
 import LoginScreen from "./screens/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Container>
           <Routes>
             <Route exact path="/login" element={<LoginScreen />} />
+            <Route exact path="/register" element={<RegisterScreen />} />
+            <Route exact path="/profile" element={<ProfileScreen />} />
             <Route exact path="/" element={<HomeScreen />} />
             <Route path="product/:id" element={<ProductScreen />} />
             <Route path="cart/:id" element={<CartScreen />} />
