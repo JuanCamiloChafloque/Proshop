@@ -22,7 +22,7 @@ const ProductScreen = () => {
   const productDetails = useSelector((state) => state.productDetails);
   const { error, loading, product } = productDetails;
 
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
 
   //Everything here will execute as soon the component loads
   useEffect(() => {
