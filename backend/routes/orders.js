@@ -6,9 +6,11 @@ const protect = require("../middleware/authMiddleware");
 const {
   addOrderItems,
   getOrderById,
+  updateOrderToPaid,
 } = require("../controllers/orderController");
 
 router.get("/:id", protect, getOrderById);
 router.post("/", protect, addOrderItems);
+router.put("/:id/pay", protect, updateOrderToPaid);
 
 module.exports = router;
