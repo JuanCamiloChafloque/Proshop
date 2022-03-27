@@ -24,6 +24,11 @@ app.use("/api/products", products);
 app.use("/api/users", users);
 app.use("/api/orders", orders);
 
+//Paypal key route
+app.get("/api/config/paypal", (req, res) =>
+  res.send(process.env.PAYPAL_CLIENT_ID)
+);
+
 // Re-routing for non existing routes
 app.use(notFound);
 //Error handler middleware
