@@ -3,6 +3,11 @@ const Schema = mongoose.Schema;
 
 const ReviewSchema = new Schema(
   {
+    user: {
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: "user",
+    },
     name: {
       type: String,
       required: true,
