@@ -5,7 +5,20 @@ const Product = require("../model/Product");
 //@route    GET /api/products
 //@access   public
 const getProducts = asyncHandler(async (req, res) => {
-  const products = await Product.find({});
+  const keyword = req.query.keyword;
+  let filter;
+  if (keyword !== "undefined") {
+    filter = {
+      name: {
+        $regex: req.query.keyword,
+        $options: "i",
+      },
+    };
+  } else {
+    filter = {};
+  }
+
+  const products = await Product.find({ ...filter });
   res.status(200).json(products);
 });
 

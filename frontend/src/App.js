@@ -34,6 +34,7 @@ function App() {
             <Route path="/placeorder" element={<PlaceOrderScreen />} />
             <Route path="/order/:id" element={<OrderScreen />} />
             <Route exact path="/" element={<HomeScreen />} />
+            <Route path="/search/:keyword" element={<HomeScreen />} />
             <Route path="product/:id" element={<ProductScreen />} />
             <Route path="cart/:id" element={<CartScreen />} />
             <Route path="/admin/userlist" element={<UserListScreen />} />
