@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { protect } = require("../middleware/authMiddleware");
+const { protect, admin } = require("../middleware/authMiddleware");
 
 //Controllers
 const {
@@ -8,9 +8,11 @@ const {
   getOrderById,
   updateOrderToPaid,
   getMyOrders,
+  getOrders,
 } = require("../controllers/orderController");
 
 router.post("/", protect, addOrderItems);
+router.get("/", protect, admin, getOrders);
 router.get("/myorders", protect, getMyOrders);
 router.put("/:id/pay", protect, updateOrderToPaid);
 router.get("/:id", protect, getOrderById);
