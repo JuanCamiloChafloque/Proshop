@@ -10,9 +10,11 @@ const {
   createProduct,
   updateProduct,
   reviewProduct,
+  getTopProducts,
 } = require("../controllers/productController");
 
 router.get("/", getProducts);
+router.get("/top", getTopProducts);
 router.get("/:id", getProductById);
 router.put("/:id", protect, admin, updateProduct);
 router.post("/", protect, admin, createProduct);

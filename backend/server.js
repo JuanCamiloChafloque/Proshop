@@ -35,6 +35,15 @@ app.get("/api/config/paypal", (req, res) =>
 //Make upload folder static
 app.use("/uploads", express.static(path.join(__dirname, "..", "/uploads")));
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "..", "/frontend/build")));
+  app.get("*", (req, res) =>
+    res.sendFile(
+      path.resolve(__dirname, "..", "frontend", "build", "index.html")
+    )
+  );
+}
+
 // Re-routing for non existing routes
 app.use(notFound);
 //Error handler middleware
