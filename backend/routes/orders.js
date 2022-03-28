@@ -7,6 +7,7 @@ const {
   addOrderItems,
   getOrderById,
   updateOrderToPaid,
+  updateOrderToDelivered,
   getMyOrders,
   getOrders,
 } = require("../controllers/orderController");
@@ -15,6 +16,7 @@ router.post("/", protect, addOrderItems);
 router.get("/", protect, admin, getOrders);
 router.get("/myorders", protect, getMyOrders);
 router.put("/:id/pay", protect, updateOrderToPaid);
+router.put("/:id/deliver", protect, admin, updateOrderToDelivered);
 router.get("/:id", protect, getOrderById);
 
 module.exports = router;
