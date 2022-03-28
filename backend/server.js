@@ -1,11 +1,13 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const path = require("path");
 const db = require("./config/db");
 
 //Routes
 const products = require("./routes/products");
 const users = require("./routes/users");
 const orders = require("./routes/orders");
+const uploads = require("./routes/uploads");
 
 //Middlewares
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
@@ -23,11 +25,15 @@ app.use(express.json());
 app.use("/api/products", products);
 app.use("/api/users", users);
 app.use("/api/orders", orders);
+app.use("/api/upload", uploads);
 
 //Paypal key route
 app.get("/api/config/paypal", (req, res) =>
   res.send(process.env.PAYPAL_CLIENT_ID)
 );
+
+//Make upload folder static
+app.use("/uploads", express.static(path.join(__dirname, "..", "/uploads")));
 
 // Re-routing for non existing routes
 app.use(notFound);
